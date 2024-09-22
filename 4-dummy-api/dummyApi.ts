@@ -1,6 +1,6 @@
+import { IUser } from './typeUser';
+import { IDataSuccess, IResponseSuccess, Response } from './typeResponse';
 import axios from 'axios';
-import {IUser} from './typeUser';
-import {IDataSuccess, IResponseSuccess, Response} from './typeResponse';
 
 const url: string = 'https://dummyjson.com/userss';
 
@@ -35,10 +35,5 @@ async function requestDummy(url: string): Promise<IUser[]> {
 }
 
 requestDummy(url)
-  .then(res => console.log(res))
-  .catch(err => console.log(err));
-
-
-
-
-
+  .then((res) => console.log(res))
+  .catch((err) => console.log(err));
