@@ -1,4 +1,4 @@
-import { newMap } from './newMap';
+import { newMap } from './newMap.js';
 
 describe('test newMap', () => {
   let newMapInstance: newMap;

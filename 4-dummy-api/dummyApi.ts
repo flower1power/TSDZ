@@ -1,5 +1,5 @@
-import { IUser } from './typeUser';
-import { IDataSuccess, IResponseSuccess, Response } from './typeResponse';
+import { IUser } from './typeUser.js';
+import { IDataSuccess, IResponseSuccess, Response } from './typeResponse.js';
 import axios from 'axios';
 
 const url: string = 'https://dummyjson.com/userss';
