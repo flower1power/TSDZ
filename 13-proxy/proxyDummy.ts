@@ -1,10 +1,10 @@
 import { RequestBuilder } from '../12-builder/builder.js';
 
-interface IDummyPrduct {
+interface IDummyProduct {
   getProduct(id: number): Promise<Record<string, any> | Error>;
 }
 
-class DummyProduct implements IDummyPrduct {
+class DummyProduct implements IDummyProduct {
   async getProduct(id: number): Promise<Record<string, any>> {
     try {
       const res = await new RequestBuilder()
@@ -23,9 +23,9 @@ class DummyProduct implements IDummyPrduct {
   }
 }
 
-class ProxyDummy implements IDummyPrduct {
+class ProxyDummy implements IDummyProduct {
   constructor(
-    private api: IDummyPrduct,
+    private api: IDummyProduct,
     private itemId: number,
   ) {}
 

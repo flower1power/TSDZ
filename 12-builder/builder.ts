@@ -1,13 +1,6 @@
 type HttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE';
 
-interface RequestOptions {
-  method: HttpMethod;
-  url: string;
-  headers: Record<string, string>;
-  body?: any;
-}
-
-class RequestBuilder implements RequestBuilder {
+export class RequestBuilder implements RequestBuilder {
   private _method: HttpMethod = 'GET';
   private _url: string = '';
   private _headers: Record<string, string> = {};
@@ -54,14 +47,3 @@ class RequestBuilder implements RequestBuilder {
     return await fetch(this._url, options);
   }
 }
-
-let req: RequestBuilder;
-req = new RequestBuilder();
-req
-  .addMethod('POST')
-  .addUrl('test')
-  .addHeader('Content-Type', 'application/json')
-  .addBody(JSON.stringify({ key: 'value' }))
-  .exec()
-  .then((res) => console.log(res))
-  .catch((err) => console.log(err));
