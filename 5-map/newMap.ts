@@ -1,4 +1,4 @@
-import { IBucket, TBucketEl, TStatus } from './helpers';
+import { IBucket, TBucketEl, TStatus } from './helpers.js';
 
 export class newMap {
   private _bucket: IBucket[] = [];
@@ -30,7 +30,7 @@ export class newMap {
       this._bucket.push({ hash, data: [bucketEl] });
       this.log({ status: 'success', message: `В баккет добавлен элемент` });
     } else {
-      const index = item.data.findIndex((el) => el[0] === key);
+      const index = item.data.findIndex((el: TBucketEl) => el[0] === key);
       if (index >= 0) {
         item.data[index] = bucketEl;
         this.log({
@@ -55,9 +55,9 @@ export class newMap {
   delete(key: string) {
     const bucket = this.findBucket(key);
     if (bucket) {
-      const index = bucket.data.findIndex((el) => el[0] === key);
+      const index = bucket.data.findIndex((el: TBucketEl) => el[0] === key);
       if (index >= 0) {
-        bucket.data = bucket.data.filter((el) => el[0] !== key);
+        bucket.data = bucket.data.filter((el: TBucketEl) => el[0] !== key);
         this.log({
           status: 'success',
           message: `Значение по ключу ${key} удалено`,
@@ -74,7 +74,7 @@ export class newMap {
   get(key: string): TBucketEl[] | undefined {
     const bucket = this.findBucket(key);
     if (bucket) {
-      return bucket.data.filter((el) => el[0] === key);
+      return bucket.data.filter((el: TBucketEl) => el[0] === key);
     } else {
       this.log({
         status: 'error',
