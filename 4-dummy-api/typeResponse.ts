@@ -1,4 +1,4 @@
-import {IUser} from './typeUser';
+import { IUser } from './typeUser.js';
 
 interface IDataFailed {
   status: number;
@@ -10,13 +10,13 @@ export interface IDataSuccess {
 }
 
 export interface IResponseSuccess {
-  status: number,
-  data: IDataSuccess
+  status: number;
+  data: IDataSuccess;
 }
 
 export interface IResponseFailed {
-  status: number,
-  data: IDataFailed
+  status: number;
+  data: IDataFailed;
 }
 
-export type Response = IResponseSuccess | IResponseFailed
+export type Response = IResponseSuccess | IResponseFailed;
